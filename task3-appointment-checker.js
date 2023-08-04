@@ -14,8 +14,8 @@
   console.log('Earliest possible time slot', availableTime)
 })()
 
-function findFreeSlot (userCalendars, workHourRange, slotDuration) {
-  const freeSlots = userCalendars.map(meetings => inverseBusyTime(meetings, workHourRange))
+function findFreeSlot (userSchedules, workHourRange, slotDuration) {
+  const freeSlots = userSchedules.map(meetings => inverseBusyTime(meetings, workHourRange))
 
   // check if all have at least one free slot that fit the duration
   const userFreeFit = freeSlots
@@ -25,7 +25,7 @@ function findFreeSlot (userCalendars, workHourRange, slotDuration) {
   console.log('free', freeSlots)
   console.log('freefit', userFreeFit)
 
-  if (userFreeFit.length !== userCalendars.length) return null
+  if (userFreeFit.length !== userSchedules.length) return null
 
   // if all have free time, pick the less free slot
   userFreeFit.sort((a, b) => a.length - b.length)
