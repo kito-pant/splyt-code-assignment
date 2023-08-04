@@ -13,7 +13,7 @@
     })
 
   retryFailures(createTargetFunction(10), 10).then((attempt) => {
-    console.assert(attempt === 10);
+    console.assert(attempt === 10)
   }) 
 })()
 
@@ -35,7 +35,7 @@ async function retryFailures(fn, retries) {
 
 
 function createTargetFunction(succeedsOnAttempt) {
-  let attempt = 0;
+  let attempt = 0
 
   return async () => {
     if (++attempt === succeedsOnAttempt) {
